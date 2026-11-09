@@ -2,6 +2,7 @@
 import {
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   Tooltip,
@@ -18,7 +19,11 @@ export default function ProgramBarChart() {
           <XAxis dataKey="program" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="students" fill="#16a34a" />
+          <Bar dataKey="students" radius={[6, 6, 0, 0]}>
+            {programData.map((entry) => (
+              <Cell key={entry.program} fill={entry.color} />
+            ))}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>
